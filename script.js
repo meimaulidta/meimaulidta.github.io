@@ -22,15 +22,15 @@
       html.setAttribute("data-theme", nextTheme);
       toggle.setAttribute("aria-label", nextTheme === "dark" ? "Aktifkan mode terang" : "Aktifkan mode gelap");
       toggle.setAttribute("title", nextTheme === "dark" ? "Mode terang" : "Mode gelap");
-      if (meta) meta.setAttribute("content", nextTheme === "dark" ? "#09090a" : "#f2efe8");
+      if (meta) meta.setAttribute("content", nextTheme === "dark" ? "#05060f" : "#eef6ff");
       if (persist) {
         try {
-          localStorage.setItem("portfolio-theme", nextTheme);
+          localStorage.setItem("portfolio-theme-v2", nextTheme);
         } catch (error) {}
       }
     };
 
-    applyTheme(html.getAttribute("data-theme") || "dark", false);
+    applyTheme(html.getAttribute("data-theme") || "light", false);
     toggle.addEventListener("click", () => {
       applyTheme(html.getAttribute("data-theme") === "dark" ? "light" : "dark");
     });
@@ -116,25 +116,10 @@
   function initHeader() {
     const header = document.getElementById("site-header");
     const progress = document.querySelector(".scroll-progress span");
-    const parallaxItems = Array.from(document.querySelectorAll("[data-parallax]"));
     if (!header) return;
 
     let lastY = window.scrollY;
     let ticking = false;
-
-    const updateParallax = () => {
-      if (!canAnimate()) return;
-      const viewport = window.innerHeight;
-      parallaxItems.forEach((item) => {
-        const holder = item.parentElement;
-        if (!holder) return;
-        const rect = holder.getBoundingClientRect();
-        if (rect.bottom < -160 || rect.top > viewport + 160) return;
-        const speed = Number.parseFloat(item.dataset.parallax) || 5;
-        const offset = (rect.top + rect.height / 2 - viewport / 2) / viewport;
-        item.style.transform = `translate3d(0, ${offset * speed}%, 0) scale(1.14)`;
-      });
-    };
 
     const update = () => {
       const y = window.scrollY;
@@ -159,7 +144,6 @@
         progress.style.transform = `scaleX(${amount})`;
       }
 
-      updateParallax();
       lastY = y;
       ticking = false;
     };
@@ -175,6 +159,70 @@
     window.addEventListener("resize", requestUpdate, { passive: true });
     header.addEventListener("focusin", () => header.classList.remove("is-hidden"));
     requestUpdate();
+  }
+
+  function initParallax() {
+    const items = Array.from(document.querySelectorAll("[data-parallax]"));
+    if (!items.length) return;
+
+    const states = items.map((element) => ({
+      element,
+      holder: element.parentElement,
+      speed: Number.parseFloat(element.dataset.parallax) || 5,
+      current: 0
+    }));
+
+    if (!canAnimate()) {
+      states.forEach((state) => {
+        state.element.style.transform = "scale(1.06)";
+      });
+      return;
+    }
+
+    const render = () => {
+      const viewport = window.innerHeight;
+      states.forEach((state) => {
+        if (!state.holder) return;
+        const rect = state.holder.getBoundingClientRect();
+        if (rect.bottom < -220 || rect.top > viewport + 220) return;
+        const offset = (rect.top + rect.height / 2 - viewport / 2) / viewport;
+        const target = offset * state.speed;
+        state.current += (target - state.current) * 0.09;
+        state.element.style.transform = `translate3d(0, ${state.current.toFixed(2)}%, 0) scale(1.14)`;
+      });
+      requestAnimationFrame(render);
+    };
+
+    requestAnimationFrame(render);
+  }
+
+  function initBurst() {
+    const sections = Array.from(document.querySelectorAll("[data-burst-section]"));
+    if (!sections.length) return;
+
+    const states = sections.map((element) => ({ element, current: 0 }));
+
+    if (!canAnimate()) {
+      states.forEach((state) => state.element.style.setProperty("--burst", "0.65"));
+      return;
+    }
+
+    const render = () => {
+      const viewport = window.innerHeight;
+      states.forEach((state) => {
+        const rect = state.element.getBoundingClientRect();
+        const total = rect.height + viewport;
+        const raw = (viewport - rect.top) / total;
+        const target = Math.min(Math.max(raw, 0), 1);
+        state.current += (target - state.current) * 0.07;
+        state.element.style.setProperty("--burst", state.current.toFixed(3));
+        const shift = (rect.top + rect.height / 2 - viewport / 2) / viewport;
+        state.element.style.setProperty("--parallax", `${(shift * -90).toFixed(2)}px`);
+      });
+      requestAnimationFrame(render);
+    };
+
+    requestAnimationFrame(render);
   }
 
   function initMobileMenu() {
@@ -351,13 +399,21 @@
     const cards = document.querySelectorAll("[data-tilt]");
 
     cards.forEach((card) => {
+      const media = card.querySelector(".work-card__media");
+
       card.addEventListener("pointermove", (event) => {
-        if (event.pointerType !== "mouse" || !card.classList.contains("is-visible")) return;
+        if (event.pointerType !== "mouse") return;
+        if (card.hasAttribute("data-reveal") && !card.classList.contains("is-visible")) return;
         const rect = card.getBoundingClientRect();
         const x = (event.clientX - rect.left) / rect.width - 0.5;
         const y = (event.clientY - rect.top) / rect.height - 0.5;
         card.style.transition = "transform 0.18s linear";
         card.style.transform = `perspective(1100px) rotateX(${-y * 2.4}deg) rotateY(${x * 2.8}deg) translate3d(0, -4px, 0)`;
+        if (media) {
+          const mRect = media.getBoundingClientRect();
+          media.style.setProperty("--gx", `${((event.clientX - mRect.left) / mRect.width) * 100}%`);
+          media.style.setProperty("--gy", `${((event.clientY - mRect.top) / mRect.height) * 100}%`);
+        }
       });
 
       card.addEventListener("pointerleave", () => {
@@ -558,6 +614,8 @@
   initPreloader();
   initClock();
   initHeader();
+  initParallax();
+  initBurst();
   initMobileMenu();
   initCursor();
   initMagnetic();
