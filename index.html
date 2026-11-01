@@ -25,7 +25,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Surabaya+Sans:wght@300;400;500;600;700;800&display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="styles.css" />
@@ -50,7 +50,8 @@
             (function () {
                 var theme = "dark";
                 try {
-                    theme = localStorage.getItem("portfolio-theme-v2") || "dark";
+                    theme =
+                        localStorage.getItem("portfolio-theme-v2") || "dark";
                 } catch (error) {}
                 if (theme !== "light" && theme !== "dark") theme = "dark";
                 document.documentElement.setAttribute("data-theme", theme);
@@ -84,7 +85,7 @@
         <div class="preloader" aria-hidden="true">
             <div class="preloader__top">
                 <span>Portfolio / 2026</span>
-                <span>Jakarta, ID</span>
+                <span>Surabaya, ID</span>
             </div>
             <div class="preloader__center">
                 <span class="preloader__word">mei<em>.</em></span>
@@ -111,14 +112,14 @@
             </p>
 
             <nav class="desktop-nav" aria-label="Navigasi utama">
+                <a href="#services" data-nav="services">Layanan</a>
                 <a href="#work" data-nav="work">Karya</a>
                 <a href="#about" data-nav="about">Tentang</a>
-                <a href="#services" data-nav="services">Layanan</a>
                 <a href="#contact" data-nav="contact">Kontak</a>
             </nav>
 
             <div class="header-actions">
-                <span class="header-clock" id="header-clock">JKT 00:00</span>
+                <span class="header-clock" id="header-clock">SBY 00:00</span>
                 <button
                     class="theme-toggle"
                     id="theme-toggle"
@@ -189,18 +190,18 @@
                 <p class="mobile-menu__label">Navigasi</p>
                 <ul class="mobile-menu__nav">
                     <li>
+                        <a href="#services" data-menu-link
+                            ><span>Layanan</span><sup>01</sup></a
+                        >
+                    </li>
+                    <li>
                         <a href="#work" data-menu-link
-                            ><span>Karya</span><sup>01</sup></a
+                            ><span>Karya</span><sup>02</sup></a
                         >
                     </li>
                     <li>
                         <a href="#about" data-menu-link
-                            ><span>Tentang</span><sup>02</sup></a
-                        >
-                    </li>
-                    <li>
-                        <a href="#services" data-menu-link
-                            ><span>Layanan</span><sup>03</sup></a
+                            ><span>Tentang</span><sup>03</sup></a
                         >
                     </li>
                     <li>
@@ -210,24 +211,24 @@
                     </li>
                 </ul>
                 <div class="mobile-menu__footer">
-                    <a href="mailto:hello@meimaulidta.com"
-                        >hello@meimaulidta.com</a
+                    <a href="mailto:meimaulidta0105@gmail.com"
+                        >meimaulidta0105@gmail.com</a
                     >
                     <div class="mobile-menu__socials">
                         <a
-                            href="https://instagram.com/"
+                            href="https://www.instagram.com/meiiimr"
                             target="_blank"
                             rel="noopener noreferrer"
                             >Instagram</a
                         >
                         <a
-                            href="https://www.tiktok.com/"
+                            href="https://www.tiktok.com/@haloomeiii"
                             target="_blank"
                             rel="noopener noreferrer"
                             >TikTok</a
                         >
                         <a
-                            href="https://www.linkedin.com/"
+                            href="https://id.linkedin.com/in/meimaulidta"
                             target="_blank"
                             rel="noopener noreferrer"
                             >LinkedIn</a
@@ -253,7 +254,10 @@
                 <div class="container hero__grid">
                     <div class="hero__copy">
                         <p class="eyebrow hero-anim">
-                            <span class="eyebrow__dot" aria-hidden="true"></span>
+                            <span
+                                class="eyebrow__dot"
+                                aria-hidden="true"
+                            ></span>
                             Content creator &amp; social media specialist
                         </p>
 
@@ -270,18 +274,15 @@
                             >
                             <span class="hero__line"
                                 ><span class="hero__line-inner"
-                                    >terasa <em>dekat.</em></span
+                                    >lebih <em>fun.</em></span
                                 ></span
                             >
                         </h1>
 
                         <p class="hero__lead hero-anim">
-                            Aku
-                            <strong>Mei Maulidta Tri Ambarwati</strong> — content
-                            creator, digital marketer, dan social media
-                            specialist. Aku bantu brand bercerita dengan cara
-                            yang jujur, hangat, dan bikin orang ingin balik
-                            lagi.
+                            <strong>Mei Maulidta Tri Ambarwati</strong> —
+                            content creator, digital marketing, dan social media
+                            specialist.
                         </p>
 
                         <div class="hero__actions hero-anim">
@@ -310,7 +311,7 @@
                             </a>
                         </div>
 
-                        <div class="hero__proof hero-anim">
+                        <!-- <div class="hero__proof hero-anim">
                             <div class="avatar-stack" aria-hidden="true">
                                 <span>KN</span><span>NM</span><span>AR</span
                                 ><span>FD</span>
@@ -319,13 +320,13 @@
                                 <strong>30+ brand</strong> sudah diajak tumbuh
                                 bareng
                             </p>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="hero__visual hero-anim">
                         <div class="portrait-card" data-tilt>
                             <img
-                                src="assets/portrait.webp"
+                                src="assets/hero-image.jpg"
                                 alt="Potret Mei Maulidta Tri Ambarwati"
                                 width="900"
                                 height="1350"
@@ -340,7 +341,7 @@
                             </span>
                             <span class="portrait-card__caption">
                                 <span>Mei Maulidta</span>
-                                <span>Jakarta, ID</span>
+                                <span>Surabaya, ID</span>
                             </span>
                         </div>
 
@@ -352,33 +353,32 @@
                                     stroke="currentColor"
                                     stroke-width="1.7"
                                 >
-                                    <path
-                                        d="M3 17l5-6 4 3 5-7 4 4"
-                                    ></path>
+                                    <path d="M3 17l5-6 4 3 5-7 4 4"></path>
                                 </svg>
                             </span>
-                            <p class="float-card__num">2.4M</p>
-                            <p class="float-card__label">Reach bulan ini</p>
+                            <p class="float-card__num">3 Social Media</p>
+                            <p class="float-card__label">Platforms</p>
                         </div>
 
                         <div class="float-card float-card--engage">
                             <span class="float-card__icon" aria-hidden="true">
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                >
+                                <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path
                                         d="M12 21s-7-4.35-7-9.5A4.5 4.5 0 0 1 12 8a4.5 4.5 0 0 1 7 3.5C19 16.65 12 21 12 21Z"
                                     ></path>
                                 </svg>
                             </span>
-                            <p class="float-card__num">+180%</p>
-                            <p class="float-card__label">Engagement rate</p>
+                            <p class="float-card__num">20%</p>
+                            <p class="float-card__label">Engagement brand</p>
                         </div>
                     </div>
                 </div>
 
-                <a class="hero__scroll" href="#services" aria-label="Scroll ke bawah">
+                <a
+                    class="hero__scroll"
+                    href="#services"
+                    aria-label="Scroll ke bawah"
+                >
                     <span>Scroll</span>
                     <span class="hero__scroll-line" aria-hidden="true"></span>
                 </a>
@@ -433,15 +433,18 @@
                             </h2>
                         </div>
                         <p class="section-lead" data-reveal>
-                            Dari ide sampai posting, aku bantu brand punya
-                            cerita yang konsisten — dan hasil yang bisa diukur.
+                            Dari ide sampai posting, dan bantu brand punya
+                            cerita yang konsisten.
                         </p>
                     </div>
 
                     <div class="service-grid">
                         <article class="service-card" data-reveal>
                             <div class="service-card__top">
-                                <span class="service-card__icon" aria-hidden="true">
+                                <span
+                                    class="service-card__icon"
+                                    aria-hidden="true"
+                                >
                                     <svg
                                         viewBox="0 0 24 24"
                                         fill="none"
@@ -463,9 +466,9 @@
                             </div>
                             <h3>Content creation</h3>
                             <p>
-                                Foto, video pendek, dan copywriting yang terasa
-                                manusiawi. Rencana konten bulanan yang rapi,
-                                tanpa kehilangan karakter brand.
+                                Foto, video pendek, dan copywriting yang
+                                menarik. Membuat konten harian yang konsisten
+                                dan lebih hidup.
                             </p>
                             <ul class="tag-list">
                                 <li>Short video</li>
@@ -476,7 +479,10 @@
 
                         <article class="service-card" data-reveal>
                             <div class="service-card__top">
-                                <span class="service-card__icon" aria-hidden="true">
+                                <span
+                                    class="service-card__icon"
+                                    aria-hidden="true"
+                                >
                                     <svg
                                         viewBox="0 0 24 24"
                                         fill="none"
@@ -492,12 +498,10 @@
                             </div>
                             <h3>Digital marketing</h3>
                             <p>
-                                Strategi funnel, riset audiens, dan campaign
-                                berbayar yang fokus ke tujuan — bukan sekadar
-                                ramai di awal.
+                                Strategi marketing, riset audiens, dan campaign
+                                berbayar yang fokus ke tujuan.
                             </p>
                             <ul class="tag-list">
-                                <li>Meta ads</li>
                                 <li>Funnel</li>
                                 <li>Analytics</li>
                             </ul>
@@ -505,7 +509,10 @@
 
                         <article class="service-card" data-reveal>
                             <div class="service-card__top">
-                                <span class="service-card__icon" aria-hidden="true">
+                                <span
+                                    class="service-card__icon"
+                                    aria-hidden="true"
+                                >
                                     <svg
                                         viewBox="0 0 24 24"
                                         fill="none"
@@ -521,8 +528,8 @@
                             </div>
                             <h3>Social media</h3>
                             <p>
-                                Kelola akun, bangun komunitas, dan jaga nada
-                                bicara brand di setiap komentar dan pesan.
+                                Kelola akun, bangun komunitas, dan memasarkan
+                                brand ke kalangan luas.
                             </p>
                             <ul class="tag-list">
                                 <li>Content plan</li>
@@ -531,9 +538,15 @@
                             </ul>
                         </article>
 
-                        <article class="service-card service-card--accent" data-reveal>
+                        <article
+                            class="service-card service-card--accent"
+                            data-reveal
+                        >
                             <div class="service-card__top">
-                                <span class="service-card__icon" aria-hidden="true">
+                                <span
+                                    class="service-card__icon"
+                                    aria-hidden="true"
+                                >
                                     <svg
                                         viewBox="0 0 24 24"
                                         fill="none"
@@ -549,7 +562,7 @@
                             </div>
                             <h3>Brand campaign</h3>
                             <p>
-                                Konsep kampanye dari insight sampai eksekusi.
+                                Konsep branding dari insight sampai eksekusi.
                                 Satu cerita besar yang turun jadi konten kecil
                                 yang saling nyambung.
                             </p>
@@ -588,7 +601,7 @@
                     <div class="section-head">
                         <div>
                             <p class="section-index" data-reveal>
-                                <span>02</span> Karya pilihan
+                                <span>02</span> Karya dan Sertifikasi
                             </p>
                             <h2
                                 class="section-title"
@@ -598,128 +611,203 @@
                                 Cerita yang<br /><em>jadi hasil.</em>
                             </h2>
                         </div>
-                        <p class="section-lead" data-reveal>
-                            Beberapa kolaborasi favorit — dari brand lokal
-                            sampai kampanye yang tembus jutaan tayangan.
-                        </p>
                     </div>
 
                     <div class="work-grid">
-                        <a
+                        <article
                             class="work-card work-card--wide"
-                            href="#contact"
                             data-reveal
-                            data-cursor="Lihat"
                             data-tilt
                         >
                             <div class="work-card__media">
-                                <img
-                                    src="assets/project-kinetic.webp"
-                                    alt="Eksplorasi visual abstrak untuk identitas Kinetic"
-                                    width="1200"
-                                    height="912"
-                                    data-parallax="6"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                                <span class="work-card__tag">Brand campaign</span>
-                                <span class="work-card__metric">3.1M views</span>
+                                <button
+                                    class="work-card__preview"
+                                    type="button"
+                                    data-image-preview
+                                    data-cursor="Preview"
+                                    aria-label="Preview gambar Kinetic Rebrand"
+                                >
+                                    <img
+                                        src="assets/project1.png"
+                                        alt="Eksplorasi visual abstrak untuk identitas Kinetic"
+                                        width="1200"
+                                        height="912"
+                                        data-parallax="6"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </button>
+                                <span class="work-card__tag">Project</span>
                             </div>
                             <div class="work-card__body">
                                 <div>
-                                    <h3>Kinetic Rebrand</h3>
-                                    <p>Content direction / Social launch</p>
+                                    <h3>Dsavior Brand</h3>
+                                    <p>Project Landing Page Catalog</p>
                                 </div>
-                                <span class="work-card__year">2026</span>
+                                <div class="work-card__actions">
+                                    <a
+                                        class="work-card__download"
+                                        href="https://meimaulidta.github.io/dsavior"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >Kunjungi Project</a
+                                    >
+                                    <span class="work-card__year">2026</span>
+                                </div>
                             </div>
-                        </a>
+                        </article>
 
-                        <a
-                            class="work-card"
-                            href="#contact"
-                            data-reveal
-                            data-cursor="Lihat"
-                            data-tilt
-                        >
+                        <article class="work-card" data-reveal data-tilt>
                             <div class="work-card__media">
-                                <img
-                                    src="assets/project-noma.webp"
-                                    alt="Arsitektur minimal sebagai arah visual brand Noma"
-                                    width="1200"
-                                    height="800"
-                                    data-parallax="6"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                                <span class="work-card__tag">Social media</span>
-                                <span class="work-card__metric">+240% engagement</span>
+                                <button
+                                    class="work-card__preview"
+                                    type="button"
+                                    data-image-preview
+                                    data-cursor="Preview"
+                                    aria-label="Preview sertifikat Workshop Videography"
+                                >
+                                    <img
+                                        src="assets/sertif1.jpeg"
+                                        alt="Sertifikat Workshop Videography"
+                                        width="1200"
+                                        height="800"
+                                        data-parallax="6"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </button>
+                                <span class="work-card__tag">Certificate</span>
                             </div>
                             <div class="work-card__body">
                                 <div>
-                                    <h3>Noma Social Launch</h3>
-                                    <p>Strategy / Content plan</p>
+                                    <h3>Certificate Workshop Videography</h3>
+                                    <p>Workshop completion certificate</p>
                                 </div>
-                                <span class="work-card__year">2025</span>
+                                <div class="work-card__actions">
+                                    <a
+                                        class="work-card__download"
+                                        href="assets/sertif1.jpeg"
+                                        download="certificate-workshop-videography.jpeg"
+                                        >Download</a
+                                    >
+                                    <span class="work-card__year">2024</span>
+                                </div>
                             </div>
-                        </a>
+                        </article>
 
-                        <a
-                            class="work-card"
-                            href="#contact"
-                            data-reveal
-                            data-cursor="Lihat"
-                            data-tilt
-                        >
+                        <article class="work-card" data-reveal data-tilt>
                             <div class="work-card__media">
-                                <img
-                                    src="assets/project-aurel.webp"
-                                    alt="Foto editorial fashion untuk digital flagship Aurel"
-                                    width="1200"
-                                    height="1800"
-                                    data-parallax="6"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                                <span class="work-card__tag">Content creation</span>
-                                <span class="work-card__metric">1.8M reach</span>
+                                <button
+                                    class="work-card__preview"
+                                    type="button"
+                                    data-image-preview
+                                    data-cursor="Preview"
+                                    aria-label="Preview sertifikat LKMM-TD"
+                                >
+                                    <img
+                                        src="assets/sertif2.jpeg"
+                                        alt="Sertifikat LKMM-TD"
+                                        width="1200"
+                                        height="1800"
+                                        data-parallax="6"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </button>
+                                <span class="work-card__tag">Certificate</span>
                             </div>
                             <div class="work-card__body">
                                 <div>
-                                    <h3>Aurel Fashion Week</h3>
-                                    <p>Short video / Editorial</p>
+                                    <h3>Certificate LKMM-TD</h3>
+                                    <p>Workshop completion certificate</p>
                                 </div>
-                                <span class="work-card__year">2025</span>
+                                <div class="work-card__actions">
+                                    <a
+                                        class="work-card__download"
+                                        href="assets/sertif2.jpeg"
+                                        download="certificate-lkmm-td.jpeg"
+                                        >Download</a
+                                    >
+                                    <span class="work-card__year">2024</span>
+                                </div>
                             </div>
-                        </a>
+                        </article>
 
-                        <a
-                            class="work-card work-card--wide"
-                            href="#contact"
-                            data-reveal
-                            data-cursor="Lihat"
-                            data-tilt
-                        >
+                        <article class="work-card" data-reveal data-tilt>
                             <div class="work-card__media">
-                                <img
-                                    src="assets/project-field.webp"
-                                    alt="Detail perangkat retro untuk platform editorial Field"
-                                    width="1200"
-                                    height="800"
-                                    data-parallax="6"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                                <span class="work-card__tag">Digital marketing</span>
-                                <span class="work-card__metric">+62% CTR</span>
+                                <button
+                                    class="work-card__preview"
+                                    type="button"
+                                    data-image-preview
+                                    data-cursor="Preview"
+                                    aria-label="Preview sertifikat Google Ads"
+                                >
+                                    <img
+                                        src="assets/sertif3.jpeg"
+                                        alt="Sertifikat Google Ads"
+                                        width="1200"
+                                        height="1800"
+                                        data-parallax="6"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </button>
+                                <span class="work-card__tag">Certificate</span>
                             </div>
                             <div class="work-card__body">
                                 <div>
-                                    <h3>Field Editorial</h3>
-                                    <p>Paid campaign / Funnel</p>
+                                    <h3>Certificate Google Ads</h3>
+                                    <p>Workshop completion certificate</p>
                                 </div>
-                                <span class="work-card__year">2024</span>
+                                <div class="work-card__actions">
+                                    <a
+                                        class="work-card__download"
+                                        href="assets/sertif3.jpeg"
+                                        download="certificate-google-ads.jpeg"
+                                        >Download</a
+                                    >
+                                    <span class="work-card__year">2026</span>
+                                </div>
                             </div>
-                        </a>
+                        </article>
+
+                        <article class="work-card" data-reveal data-tilt>
+                            <div class="work-card__media">
+                                <button
+                                    class="work-card__preview"
+                                    type="button"
+                                    data-image-preview
+                                    data-cursor="Preview"
+                                    aria-label="Preview sertifikat Creating Marketing Camp"
+                                >
+                                    <img
+                                        src="assets/sertif4.jpeg"
+                                        alt="Sertifikat Creating Marketing Camp"
+                                        width="1200"
+                                        height="1800"
+                                        data-parallax="6"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </button>
+                                <span class="work-card__tag">Certificate</span>
+                            </div>
+                            <div class="work-card__body">
+                                <div>
+                                    <h3>Certificate Creating Marketing Camp</h3>
+                                    <p>Workshop completion certificate</p>
+                                </div>
+                                <div class="work-card__actions">
+                                    <a
+                                        class="work-card__download"
+                                        href="assets/sertif4.jpeg"
+                                        download="certificate-creating-marketing-camp.jpeg"
+                                        >Download</a
+                                    >
+                                    <span class="work-card__year">2026</span>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </section>
@@ -737,7 +825,7 @@
                     <aside class="about__aside">
                         <figure class="about__portrait" data-reveal>
                             <img
-                                src="assets/portrait.webp"
+                                src="assets/about-image.jpeg"
                                 alt="Potret Mei Maulidta di studio"
                                 width="900"
                                 height="1350"
@@ -753,12 +841,12 @@
                         <div class="about__facts" data-reveal>
                             <p class="about__facts-title">Quick facts</p>
                             <ul>
-                                <li><span>Base</span>Jakarta, Indonesia</li>
+                                <li><span>Base</span>Surabaya, Indonesia</li>
                                 <li>
                                     <span>Fokus</span>Content, social &amp;
                                     growth
                                 </li>
-                                <li><span>Kerja</span>Remote / Worldwide</li>
+                                <li><span>Kerja</span>Onsite / Remote</li>
                             </ul>
                         </div>
                     </aside>
@@ -768,46 +856,44 @@
                             <span>03</span> Tentang
                         </p>
                         <h2 class="section-title" id="about-title" data-reveal>
-                            Orang di balik<br /><em>ceritanya.</em>
+                            The story behind<br /><em>Mei.</em>
                         </h2>
 
-                        <p class="about__statement" data-split data-reveal>
-                            Aku percaya konten yang bagus bukan yang paling
-                            ramai, tapi yang paling
-                            <strong>terasa jujur.</strong>
-                        </p>
-
                         <p class="about__note" data-reveal>
-                            Lima tahun terakhir aku membantu brand menemukan
-                            suara mereka — mulai dari riset audiens, menyusun
-                            konten, sampai membaca angka dan memperbaikinya
-                            bareng-bareng.
+                            Dibalik setiap ide ada sisi kreatif mei yang selalu
+                            ingin mencoba hal baru dan melihat sesuai dari sudut
+                            pandang yang berbeda. Mei senang mengeksplorasi
+                            dunia visual merangkai ide menjadi cerita serta
+                            menciptakan konten yang tidak hanya mearik secara
+                            visual tetapi juga punya cerita didalamnya.
                         </p>
 
                         <div class="stats">
                             <div class="stat stat--card" data-reveal>
                                 <p class="stat__num">
-                                    <span data-count="5">0</span><sup>+</sup>
+                                    <span data-count="2">0</span>
                                 </p>
                                 <p class="stat__label">Tahun pengalaman</p>
                             </div>
                             <div class="stat stat--card" data-reveal>
                                 <p class="stat__num">
-                                    <span data-count="48">0</span><sup>+</sup>
-                                </p>
-                                <p class="stat__label">Kampanye selesai</p>
-                            </div>
-                            <div class="stat stat--card" data-reveal>
-                                <p class="stat__num">
-                                    <span data-count="30">0</span><sup>+</sup>
+                                    <span data-count="3">0</span>
                                 </p>
                                 <p class="stat__label">Brand partner</p>
                             </div>
                             <div class="stat stat--card" data-reveal>
                                 <p class="stat__num">
-                                    <span data-count="12">0</span><sup>M+</sup>
+                                    <span data-count="2">0</span>
                                 </p>
-                                <p class="stat__label">Total views</p>
+                                <p class="stat__label">Projects</p>
+                            </div>
+                            <div class="stat stat--card" data-reveal>
+                                <p class="stat__num">
+                                    <span data-count="4">0</span>
+                                </p>
+                                <p class="stat__label">
+                                    Certificate completion
+                                </p>
                             </div>
                         </div>
 
@@ -847,78 +933,101 @@
                                 id="testimonials-title"
                                 data-reveal
                             >
-                                Kata<br /><em>mereka.</em>
+                                Kata<br /><em>orang terdekat.</em>
                             </h2>
                         </div>
                         <p class="section-lead" data-reveal>
-                            Sedikit cerita dari orang-orang yang pernah
-                            berkolaborasi.
+                            Sedikit cerita dari orang-orang terdekat.
                         </p>
                     </div>
 
                     <div class="testimonial-grid">
                         <figure class="testimonial" data-reveal>
-                            <div class="testimonial__stars" aria-label="Rating 5 dari 5">
+                            <div
+                                class="testimonial__stars"
+                                aria-label="Rating 5 dari 5"
+                            >
                                 <span aria-hidden="true">★★★★★</span>
                             </div>
                             <blockquote>
                                 <p>
-                                    “Mei paham brand kami lebih cepat dari
-                                    agency mana pun. Kontennya hangat, tapi
-                                    angkanya juga naik.”
+                                    “Konten yang dibuat sangat menarik dan
+                                    disesuaikan dengan target audiens meski
+                                    hanya dengan cara soft selling tetapi mei
+                                    menyesuaikan dengan market serta trend dan
+                                    berusaha untuk menaikkan engagement dari
+                                    brand produk dan juga menaikkan level dari
+                                    brand D'savior"
                                 </p>
                             </blockquote>
                             <figcaption>
-                                <span class="testimonial__avatar" aria-hidden="true"
-                                    >NP</span
+                                <span
+                                    class="testimonial__avatar"
+                                    aria-hidden="true"
+                                    >SI</span
                                 >
                                 <div>
-                                    <cite>Nadia Pratama</cite>
-                                    <span>Founder, Noma</span>
+                                    <cite>Sagita ika</cite>
+                                    <span> Owner brand D'savior</span>
                                 </div>
                             </figcaption>
                         </figure>
 
                         <figure class="testimonial" data-reveal>
-                            <div class="testimonial__stars" aria-label="Rating 5 dari 5">
+                            <div
+                                class="testimonial__stars"
+                                aria-label="Rating 5 dari 5"
+                            >
                                 <span aria-hidden="true">★★★★★</span>
                             </div>
                             <blockquote>
                                 <p>
-                                    “Tim kami jadi punya arah. Setiap konten
-                                    punya alasan, dan setiap laporan gampang
-                                    dipahami.”
+                                    “Video yang dibuat tidak hanya menggunakan
+                                    trend tetapi berusaha menaikkan engagement
+                                    produk dari sebuah brand"
                                 </p>
                             </blockquote>
                             <figcaption>
-                                <span class="testimonial__avatar" aria-hidden="true"
-                                    >AR</span
+                                <span
+                                    class="testimonial__avatar"
+                                    aria-hidden="true"
+                                    >RH</span
                                 >
                                 <div>
-                                    <cite>Arya Ramadhan</cite>
-                                    <span>Marketing Lead, Kinetic</span>
+                                    <cite>Reyhan Haqiqi</cite>
+                                    <span>Partner</span>
                                 </div>
                             </figcaption>
                         </figure>
 
                         <figure class="testimonial" data-reveal>
-                            <div class="testimonial__stars" aria-label="Rating 5 dari 5">
+                            <div
+                                class="testimonial__stars"
+                                aria-label="Rating 5 dari 5"
+                            >
                                 <span aria-hidden="true">★★★★★</span>
                             </div>
                             <blockquote>
                                 <p>
-                                    “Kerja bareng Mei itu tenang. Dia peka
-                                    detail, cepat ambil keputusan, dan seru
-                                    diajak diskusi.”
+                                    “Content yang dibuat tidak hanya tentang
+                                    trend tetapi juga menjelaskan produk jadi
+                                    waktu itu penonton juga mengirimkan content
+                                    yang mei buat kemudian menanyakan harga dari
+                                    produk tersebut, terima kasih mei"
                                 </p>
                             </blockquote>
                             <figcaption>
-                                <span class="testimonial__avatar" aria-hidden="true"
-                                    >SL</span
+                                <span
+                                    class="testimonial__avatar"
+                                    aria-hidden="true"
+                                    >A</span
                                 >
                                 <div>
-                                    <cite>Sinta Larasati</cite>
-                                    <span>Creative Director, Aurel</span>
+                                    <cite>Aisyah</cite>
+                                    <span
+                                        >Coordinator, keuangan An namiroh
+                                        Travel</span
+                                    >
                                 </div>
                             </figcaption>
                         </figure>
@@ -938,9 +1047,7 @@
                 <div class="container">
                     <div class="contact-card" data-reveal>
                         <div class="contact-card__top">
-                            <p class="section-index">
-                                <span>05</span> Kontak
-                            </p>
+                            <p class="section-index"><span>05</span> Kontak</p>
                             <p class="contact-card__status">
                                 <span
                                     class="header-status__dot"
@@ -951,22 +1058,22 @@
                         </div>
 
                         <h2 class="contact-card__title" id="contact-title">
-                            Punya brand yang<br />mau lebih
-                            <em>hidup?</em>
+                            Mau cari tahu tentang <br />
+                            <em>aku?</em>
                         </h2>
 
                         <p class="contact-card__lead">
-                            Ceritakan idemu. Aku biasanya membalas dalam 24 jam
-                            — dan senang ngobrol tanpa harus langsung deal.
+                            Ceritakan idemu di platform yang sudah aku sediakan
+                            dibawah.
                         </p>
 
                         <div class="contact-card__actions">
                             <a
                                 class="btn btn--primary"
-                                href="mailto:hello@meimaulidta.com"
+                                href="mailto:meimaulidta0105@gmail.com"
                                 data-magnetic
                             >
-                                hello@meimaulidta.com
+                                meimaulidta0105@gmail.com
                                 <svg
                                     viewBox="0 0 24 24"
                                     fill="none"
@@ -979,19 +1086,13 @@
                             </a>
                             <div class="contact-card__socials">
                                 <a
-                                    href="https://instagram.com/"
+                                    href="https://www.instagram.com/meiiimr"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     >Instagram</a
                                 >
                                 <a
-                                    href="https://www.tiktok.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    >TikTok</a
-                                >
-                                <a
-                                    href="https://www.linkedin.com/"
+                                    href="https://id.linkedin.com/in/meimaulidta"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     >LinkedIn</a
@@ -1011,38 +1112,34 @@
                 <div class="footer__top">
                     <div class="footer__brand">
                         <a class="brand" href="#home">
-                            <span class="brand__mark" aria-hidden="true">m</span>
+                            <span class="brand__mark" aria-hidden="true"
+                                >m</span
+                            >
                             <span class="brand__name">mei<span>.</span></span>
                             <span class="sr-only">— Beranda</span>
                         </a>
                         <p>
                             Content creator &amp; social media specialist<br />berbasis
-                            di Jakarta, Indonesia.
+                            di Surabaya, Indonesia.
                         </p>
                     </div>
                     <nav class="footer__nav" aria-label="Tautan sosial">
                         <a
-                            href="https://instagram.com/"
+                            href="https://www.instagram.com/meiiimr"
                             target="_blank"
                             rel="noopener noreferrer"
                             >Instagram <span aria-hidden="true">↗</span></a
                         >
                         <a
-                            href="https://www.tiktok.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >TikTok <span aria-hidden="true">↗</span></a
-                        >
-                        <a
-                            href="https://www.linkedin.com/"
+                            href="https://id.linkedin.com/in/meimaulidta"
                             target="_blank"
                             rel="noopener noreferrer"
                             >LinkedIn <span aria-hidden="true">↗</span></a
                         >
                     </nav>
                     <div class="footer__meta">
-                        <p id="footer-clock">JKT 00:00</p>
-                        <p>Jakarta, Indonesia</p>
+                        <p id="footer-clock">SBY 00:00</p>
+                        <p>Surabaya, Indonesia</p>
                         <p>© <span id="year">2026</span> Mei Maulidta</p>
                     </div>
                 </div>
@@ -1055,7 +1152,7 @@
                 >
 
                 <div class="footer__bottom">
-                    <p>Dibuat dengan rasa ingin tahu.</p>
+                    <p>Portofolio created with passion - 2026.</p>
                     <a class="back-to-top" href="#home">
                         Kembali ke atas
                         <svg
@@ -1072,6 +1169,31 @@
             </div>
         </footer>
 
+        <dialog
+            class="image-preview"
+            id="image-preview"
+            aria-labelledby="image-preview-title"
+        >
+            <div class="image-preview__header">
+                <h2 id="image-preview-title"></h2>
+                <button
+                    class="image-preview__close"
+                    type="button"
+                    aria-label="Tutup preview gambar"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        aria-hidden="true"
+                    >
+                        <path d="m6 6 12 12M18 6 6 18"></path>
+                    </svg>
+                </button>
+            </div>
+            <img class="image-preview__image" alt="" />
+        </dialog>
         <script src="script.js" defer></script>
     </body>
 </html>

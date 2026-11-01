@@ -105,8 +105,8 @@
 
     const update = () => {
       const time = formatter.format(new Date());
-      if (headerClock) headerClock.textContent = `JKT ${time}`;
-      if (footerClock) footerClock.textContent = `JKT ${time}`;
+      if (headerClock) headerClock.textContent = `SBY ${time}`;
+      if (footerClock) footerClock.textContent = `SBY ${time}`;
     };
 
     update();
@@ -155,8 +155,12 @@
       }
     };
 
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate, { passive: true });
+    window.addEventListener("scroll", requestUpdate, {
+      passive: true
+    });
+    window.addEventListener("resize", requestUpdate, {
+      passive: true
+    });
     header.addEventListener("focusin", () => header.classList.remove("is-hidden"));
     requestUpdate();
   }
@@ -200,7 +204,10 @@
     const sections = Array.from(document.querySelectorAll("[data-burst-section]"));
     if (!sections.length) return;
 
-    const states = sections.map((element) => ({ element, current: 0 }));
+    const states = sections.map((element) => ({
+      element,
+      current: 0
+    }));
 
     if (!canAnimate()) {
       states.forEach((state) => state.element.style.setProperty("--burst", "0.65"));
@@ -268,7 +275,9 @@
       document.addEventListener("keydown", onKeydown);
       window.setTimeout(() => {
         const items = focusable();
-        if (items.length) items[0].focus({ preventScroll: true });
+        if (items.length) items[0].focus({
+          preventScroll: true
+        });
       }, 420);
     };
 
@@ -280,7 +289,9 @@
       if (label) label.textContent = "Menu";
       document.removeEventListener("keydown", onKeydown);
       menu.setAttribute("aria-hidden", "true");
-      if (restoreFocus) toggle.focus({ preventScroll: true });
+      if (restoreFocus) toggle.focus({
+        preventScroll: true
+      });
       window.setTimeout(() => {
         if (!body.classList.contains("menu-open")) menu.inert = true;
       }, 650);
@@ -355,8 +366,9 @@
           cursor.classList.remove("is-out");
         }
         updateTarget(event.target);
-      },
-      { passive: true }
+      }, {
+        passive: true
+      }
     );
 
     document.addEventListener("pointerleave", () => cursor.classList.add("is-out"));
@@ -435,8 +447,9 @@
         const y = ((event.clientY - rect.top) / rect.height) * 100;
         hero.style.setProperty("--mx", `${x}%`);
         hero.style.setProperty("--my", `${y}%`);
-      },
-      { passive: true }
+      }, {
+        passive: true
+      }
     );
   }
 
@@ -491,8 +504,10 @@
           entry.target.classList.add("is-visible");
           observer.unobserve(entry.target);
         });
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+      }, {
+        rootMargin: "0px 0px -8% 0px",
+        threshold: 0.12
+      }
     );
 
     items.forEach((item) => observer.observe(item));
@@ -532,8 +547,9 @@
           animateCounter(entry.target);
           observer.unobserve(entry.target);
         });
-      },
-      { threshold: 0.6 }
+      }, {
+        threshold: 0.6
+      }
     );
 
     counters.forEach((counter) => observer.observe(counter));
@@ -558,6 +574,40 @@
         items.forEach((other) => setOpen(other, false));
         if (shouldOpen) setOpen(item, true);
       });
+    });
+  }
+
+  function initImagePreview() {
+    const dialog = document.getElementById("image-preview");
+    const previewImage = dialog ? dialog.querySelector(".image-preview__image") : null;
+    const previewTitle = dialog ? dialog.querySelector("#image-preview-title") : null;
+    const closeButton = dialog ? dialog.querySelector(".image-preview__close") : null;
+    if (!dialog || !previewImage || !previewTitle || !closeButton) return;
+
+    document.querySelectorAll("[data-image-preview]").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const image = trigger.querySelector("img");
+        const card = trigger.closest(".work-card");
+        const cardTitle = card ? card.querySelector("h3") : null;
+        if (!image) return;
+
+        previewImage.src = image.currentSrc || image.src;
+        previewImage.alt = image.alt;
+        previewTitle.textContent = cardTitle
+          ? cardTitle.textContent.trim()
+          : image.alt;
+        dialog.showModal();
+      });
+    });
+
+    closeButton.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      dialog.close();
+    });
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
     });
   }
 
@@ -600,8 +650,12 @@
       requestAnimationFrame(update);
     };
 
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate, { passive: true });
+    window.addEventListener("scroll", requestUpdate, {
+      passive: true
+    });
+    window.addEventListener("resize", requestUpdate, {
+      passive: true
+    });
     update();
   }
 
@@ -624,6 +678,7 @@
   initReveal();
   initCounters();
   initAccordion();
+  initImagePreview();
   initActiveNav();
   initMisc();
 
