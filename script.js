@@ -335,6 +335,8 @@
       return;
     }
 
+    if (!canUsePointer()) return;
+
     let framePending = false;
 
     const update = () => {
@@ -663,9 +665,9 @@
 
     if (window.AOS) {
       const compactViewport = window.matchMedia("(max-width: 1180px)").matches;
-      const revealDuration = compactViewport ? 620 : 820;
-      const revealStagger = compactViewport ? 32 : 70;
-      const maxRevealDelay = compactViewport ? 96 : 280;
+      const revealDuration = compactViewport ? 420 : 820;
+      const revealStagger = compactViewport ? 24 : 70;
+      const maxRevealDelay = compactViewport ? 72 : 280;
       const aosMotions = {
         about: (index) => (index % 2 ? "fade-left" : "fade-right"),
         experience: () => "fade-up",
@@ -692,9 +694,11 @@
         ).filter((sibling) => sibling.parentElement === item.parentElement);
         const index = Math.max(siblings.indexOf(item), 0);
 
-        item.dataset.aos = aosMotions[sectionName]
-          ? aosMotions[sectionName](index)
-          : "fade-up";
+        item.dataset.aos = compactViewport
+          ? "fade-up"
+          : aosMotions[sectionName]
+            ? aosMotions[sectionName](index)
+            : "fade-up";
         item.dataset.aosDuration = String(
           compactViewport
             ? revealDuration

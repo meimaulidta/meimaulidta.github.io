@@ -169,6 +169,7 @@ html[data-theme="dark"] .marquee {
 
 html {
   color-scheme: light;
+  overflow-x: clip;
   scroll-behavior: smooth;
   scroll-padding-top: 6.5rem;
   -webkit-font-smoothing: antialiased;
@@ -181,8 +182,8 @@ html[data-theme="dark"] {
 
 body {
   margin: 0;
-  min-width: 320px;
-  overflow-x: hidden;
+  min-width: min(320px, 100%);
+  overflow-x: clip;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
