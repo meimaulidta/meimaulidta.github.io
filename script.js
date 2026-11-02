@@ -62,7 +62,7 @@
       return;
     }
 
-    const duration = 1200;
+    const duration = 600;
     let startedAt = null;
 
     const tick = (timestamp) => {
@@ -75,7 +75,7 @@
       if (progress < 1) {
         requestAnimationFrame(tick);
       } else {
-        window.setTimeout(finish, 120);
+        window.setTimeout(finish, 80);
       }
     };
 
@@ -165,71 +165,76 @@
     requestUpdate();
   }
 
-  function initParallax() {
-    const items = Array.from(document.querySelectorAll("[data-parallax]"));
-    if (!items.length) return;
-
-    const states = items.map((element) => ({
+  function initScrollEffects() {
+    const parallaxStates = Array.from(document.querySelectorAll("[data-parallax]")).map((element) => ({
       element,
       holder: element.parentElement,
       speed: Number.parseFloat(element.dataset.parallax) || 5,
       current: 0
     }));
-
-    if (!canAnimate()) {
-      states.forEach((state) => {
-        state.element.style.transform = "scale(1.06)";
-      });
-      return;
-    }
-
-    const render = () => {
-      const viewport = window.innerHeight;
-      states.forEach((state) => {
-        if (!state.holder) return;
-        const rect = state.holder.getBoundingClientRect();
-        if (rect.bottom < -220 || rect.top > viewport + 220) return;
-        const offset = (rect.top + rect.height / 2 - viewport / 2) / viewport;
-        const target = offset * state.speed;
-        state.current += (target - state.current) * 0.09;
-        state.element.style.transform = `translate3d(0, ${state.current.toFixed(2)}%, 0) scale(1.14)`;
-      });
-      requestAnimationFrame(render);
-    };
-
-    requestAnimationFrame(render);
-  }
-
-  function initBurst() {
-    const sections = Array.from(document.querySelectorAll("[data-burst-section]"));
-    if (!sections.length) return;
-
-    const states = sections.map((element) => ({
+    const burstStates = Array.from(document.querySelectorAll("[data-burst-section]")).map((element) => ({
       element,
       current: 0
     }));
 
+    if (!parallaxStates.length && !burstStates.length) return;
+
     if (!canAnimate()) {
-      states.forEach((state) => state.element.style.setProperty("--burst", "0.65"));
+      parallaxStates.forEach((state) => {
+        state.element.style.transform = "scale(1.06)";
+      });
+      burstStates.forEach((state) => state.element.style.setProperty("--burst", "0.65"));
       return;
     }
 
-    const render = () => {
+    let framePending = false;
+
+    const update = () => {
+      framePending = false;
       const viewport = window.innerHeight;
-      states.forEach((state) => {
-        const rect = state.element.getBoundingClientRect();
+      let settling = false;
+
+      const parallaxReads = parallaxStates.map((state) => ({
+        state,
+        rect: state.holder ? state.holder.getBoundingClientRect() : null
+      }));
+      const burstReads = burstStates.map((state) => ({
+        state,
+        rect: state.element.getBoundingClientRect()
+      }));
+
+      parallaxReads.forEach(({ state, rect }) => {
+        if (!rect || rect.bottom < -220 || rect.top > viewport + 220) return;
+        const offset = (rect.top + rect.height / 2 - viewport / 2) / viewport;
+        const target = offset * state.speed;
+        state.current += (target - state.current) * 0.14;
+        state.element.style.transform = `translate3d(0, ${state.current.toFixed(2)}%, 0) scale(1.14)`;
+        if (Math.abs(target - state.current) > 0.02) settling = true;
+      });
+
+      burstReads.forEach(({ state, rect }) => {
+        if (rect.bottom < -viewport || rect.top > viewport * 2) return;
         const total = rect.height + viewport;
-        const raw = (viewport - rect.top) / total;
-        const target = Math.min(Math.max(raw, 0), 1);
-        state.current += (target - state.current) * 0.07;
+        const target = Math.min(Math.max((viewport - rect.top) / total, 0), 1);
+        state.current += (target - state.current) * 0.12;
         state.element.style.setProperty("--burst", state.current.toFixed(3));
         const shift = (rect.top + rect.height / 2 - viewport / 2) / viewport;
         state.element.style.setProperty("--parallax", `${(shift * -90).toFixed(2)}px`);
+        if (Math.abs(target - state.current) > 0.002) settling = true;
       });
-      requestAnimationFrame(render);
+
+      if (settling) requestUpdate();
     };
 
-    requestAnimationFrame(render);
+    const requestUpdate = () => {
+      if (framePending) return;
+      framePending = true;
+      requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate, { passive: true });
+    requestUpdate();
   }
 
   function initMobileMenu() {
@@ -337,11 +342,22 @@
       visible: false
     };
 
+    let framePending = false;
+
     const render = () => {
+      framePending = false;
       state.ringX += (state.x - state.ringX) * 0.16;
       state.ringY += (state.y - state.ringY) * 0.16;
       dot.style.transform = `translate3d(${state.x}px, ${state.y}px, 0) translate(-50%, -50%)`;
       ring.style.transform = `translate3d(${state.ringX}px, ${state.ringY}px, 0) translate(-50%, -50%)`;
+      if (Math.abs(state.x - state.ringX) > 0.4 || Math.abs(state.y - state.ringY) > 0.4) {
+        requestRender();
+      }
+    };
+
+    const requestRender = () => {
+      if (framePending) return;
+      framePending = true;
       requestAnimationFrame(render);
     };
 
@@ -366,6 +382,7 @@
           cursor.classList.remove("is-out");
         }
         updateTarget(event.target);
+        requestRender();
       }, {
         passive: true
       }
@@ -377,7 +394,6 @@
     window.addEventListener("pointerup", () => cursor.classList.remove("is-pressed"));
     window.addEventListener("blur", () => cursor.classList.add("is-out"));
 
-    requestAnimationFrame(render);
   }
 
   function initMagnetic() {
@@ -511,6 +527,31 @@
     );
 
     items.forEach((item) => observer.observe(item));
+  }
+
+  function initSectionMotion() {
+    const sections = document.querySelectorAll(
+      ".hero, .marquee, .experience, .tools, .work, .certificates, .services, .testimonials, .contact, .footer"
+    );
+    if (!sections.length) return;
+
+    if (!canAnimate() || !("IntersectionObserver" in window)) {
+      sections.forEach((section) => section.classList.add("is-in-view"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("is-in-view", entry.isIntersecting);
+        });
+      }, {
+        rootMargin: "120px 0px",
+        threshold: 0
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
   }
 
   function initCounters() {
@@ -668,14 +709,14 @@
   initPreloader();
   initClock();
   initHeader();
-  initParallax();
-  initBurst();
+  initScrollEffects();
   initMobileMenu();
   initCursor();
   initMagnetic();
   initTilt();
   initHeroGlow();
   initReveal();
+  initSectionMotion();
   initCounters();
   initAccordion();
   initImagePreview();
