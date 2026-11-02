@@ -24,8 +24,13 @@
         <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Surabaya+Sans:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="styles.css" />
@@ -66,7 +71,8 @@
                     return;
                 document.body.classList.remove("is-loading");
                 document.body.classList.add("is-loaded");
-            }, 4500);
+                document.body.classList.add("intro-ready");
+            }, 1400);
         </script>
     </head>
     <body class="is-loading">
@@ -351,8 +357,8 @@
                             <img
                                 src="assets/hero-image.jpg"
                                 alt="Potret Mei Maulidta Tri Ambarwati"
-                                width="900"
-                                height="1350"
+                                width="964"
+                                height="1400"
                                 fetchpriority="high"
                                 decoding="async"
                                 data-parallax="4"
@@ -409,7 +415,7 @@
                 </a>
             </section>
 
-            <div class="marquee" aria-hidden="true">
+            <div class="marquee" aria-hidden="true" data-reveal>
                 <div class="marquee__track">
                     <div class="marquee__group">
                         <span>Content creation</span><i></i>
@@ -449,8 +455,8 @@
                             <img
                                 src="assets/about-image.jpeg"
                                 alt="Potret Mei Maulidta di studio"
-                                width="900"
-                                height="1350"
+                                width="1000"
+                                height="1333"
                                 loading="lazy"
                                 data-parallax="5"
                             />
@@ -901,8 +907,8 @@
                                     <img
                                         src="assets/projects/project1.png"
                                         alt="Mockup halaman katalog D'Savior Body Serum"
-                                        width="1893"
-                                        height="1080"
+                                        width="1000"
+                                        height="571"
                                         loading="lazy"
                                         decoding="async"
                                     />
@@ -938,8 +944,8 @@
                                     <img
                                         src="assets/projects/project2.png"
                                         alt="Mockup profil media sosial dan katalog produk handmade Cherrybeads7"
-                                        width="1536"
-                                        height="1024"
+                                        width="1000"
+                                        height="667"
                                         loading="lazy"
                                         decoding="async"
                                     />
@@ -978,8 +984,8 @@
                                     <img
                                         src="assets/projects/project3.png"
                                         alt="Mockup konten video TikTok untuk produk perawatan kulit"
-                                        width="1536"
-                                        height="1024"
+                                        width="1000"
+                                        height="667"
                                         loading="lazy"
                                         decoding="async"
                                     />
@@ -1025,8 +1031,8 @@
                                     <img
                                         src="assets/projects/project4.png"
                                         alt="Mockup profil TikTok PLP UNESA dengan dokumentasi dan konten kegiatan"
-                                        width="1024"
-                                        height="1536"
+                                        width="933"
+                                        height="1400"
                                         loading="lazy"
                                         decoding="async"
                                     />
@@ -1683,7 +1689,7 @@
                 </svg>
             </div>
             <div class="container">
-                <div class="footer__top">
+                <div class="footer__top" data-reveal>
                     <div class="footer__brand">
                         <a class="brand" href="#home">
                             <span class="brand__mark" aria-hidden="true"
@@ -1722,10 +1728,11 @@
                     class="footer__wordmark"
                     href="#home"
                     aria-label="mei® — Kembali ke atas"
+                    data-reveal
                     >mei<span>®</span></a
                 >
 
-                <div class="footer__bottom">
+                <div class="footer__bottom" data-reveal>
                     <p>Portofolio created with passion - 2026.</p>
                     <a class="back-to-top" href="#home">
                         Kembali ke atas
@@ -1768,6 +1775,15 @@
             </div>
             <img class="image-preview__image" alt="" />
         </dialog>
+        <script
+            src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"
+            crossorigin="anonymous"
+            defer
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"
+            defer
+        ></script>
         <script src="script.js" defer></script>
     </body>
 </html>
