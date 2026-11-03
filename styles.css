@@ -2822,12 +2822,14 @@ html[data-theme="dark"] .experience-gallery {
 
 .experience-gallery__image {
   position: relative;
+  display: block;
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: clamp(1rem, 2vw, 1.5rem);
   background: var(--surface-2);
   box-shadow: var(--shadow-sm);
+  cursor: zoom-in;
 }
 
 .experience-gallery__image:first-child {
