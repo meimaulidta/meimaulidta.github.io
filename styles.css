@@ -4069,3 +4069,147 @@ body.reveal-ready [data-split].is-visible .word {
     display: none;
   }
 }
+
+html[data-theme="light"] .services,
+html[data-theme="light"] .work,
+html[data-theme="light"] .certificates,
+html[data-theme="light"] .tools,
+html[data-theme="light"] .experience,
+html[data-theme="light"] .testimonials,
+html[data-theme="light"] .contact,
+html[data-theme="light"] .footer {
+  --ink: #0a1c3d;
+  --muted: #52688b;
+  --muted-strong: #33496b;
+  --line: rgba(10, 28, 61, 0.13);
+  --line-strong: rgba(10, 28, 61, 0.26);
+  --card: #ffffff;
+  --surface: #f1f6ff;
+  --surface-2: #e3edff;
+  --shadow-sm: 0 10px 30px -18px rgba(12, 45, 90, 0.28);
+  --shadow: 0 28px 60px -32px rgba(12, 45, 90, 0.3);
+  --shadow-lg: 0 40px 90px -40px rgba(12, 45, 90, 0.34);
+}
+
+html[data-theme="light"] .services {
+  --accent-strong: #5b3bb5;
+  --accent-soft: rgba(91, 59, 181, 0.12);
+  --section-glow-1: rgba(124, 58, 237, 0.12);
+  --section-glow-2: rgba(6, 182, 212, 0.1);
+  background-color: #edf4ff;
+  background-image: var(--grad-services);
+}
+
+html[data-theme="light"] .work {
+  --accent-strong: #087c86;
+  --accent-soft: rgba(8, 124, 134, 0.12);
+  --section-glow-1: rgba(89, 73, 176, 0.12);
+  --section-glow-2: rgba(15, 137, 159, 0.1);
+  background-color: #edf4ff;
+  background-image: var(--grad-work);
+}
+
+html[data-theme="light"] .certificates {
+  --accent: #7142b8;
+  --accent-strong: #6537a7;
+  --accent-soft: rgba(113, 66, 184, 0.12);
+  --section-glow-1: rgba(172, 87, 255, 0.12);
+  --section-glow-2: rgba(244, 114, 182, 0.1);
+  background-color: #f3f1ff;
+  background-image:
+    radial-gradient(ellipse at 86% 12%, rgba(172, 87, 255, 0.12), transparent 35%),
+    radial-gradient(ellipse at 8% 88%, rgba(244, 114, 182, 0.1), transparent 36%),
+    linear-gradient(145deg, #f8f7ff 0%, #f2efff 55%, #eef6ff 100%);
+}
+
+html[data-theme="light"] .tools {
+  --accent: #4658bd;
+  --accent-strong: #394ba8;
+  --accent-soft: rgba(70, 88, 189, 0.12);
+  --section-glow-1: rgba(129, 91, 255, 0.12);
+  --section-glow-2: rgba(34, 211, 238, 0.1);
+  background-color: #f0f3ff;
+  background-image:
+    radial-gradient(ellipse at 88% 20%, rgba(129, 91, 255, 0.12), transparent 34%),
+    radial-gradient(ellipse at 8% 84%, rgba(34, 211, 238, 0.1), transparent 36%),
+    linear-gradient(135deg, #f6f8ff 0%, #f1efff 52%, #edf8ff 100%);
+}
+
+html[data-theme="light"] .experience {
+  --accent-strong: #087c86;
+  --accent-soft: rgba(8, 124, 134, 0.12);
+  --section-glow-1: rgba(24, 178, 196, 0.12);
+  --section-glow-2: rgba(168, 85, 247, 0.1);
+  background-color: #eef9fb;
+  background-image:
+    radial-gradient(ellipse at 83% 18%, rgba(24, 178, 196, 0.12), transparent 34%),
+    radial-gradient(ellipse at 8% 88%, rgba(168, 85, 247, 0.1), transparent 36%),
+    linear-gradient(145deg, #f2fbff 0%, #eef8ff 54%, #f4f1ff 100%);
+}
+
+html[data-theme="light"] .experience-card--organization {
+  --experience-card-accent: #087c86;
+  --experience-card-glow: rgba(24, 178, 196, 0.1);
+}
+
+html[data-theme="light"] .experience-card--scholarship {
+  --experience-card-accent: #7142b8;
+  --experience-card-glow: rgba(139, 92, 246, 0.1);
+}
+
+html[data-theme="light"] .testimonials {
+  --section-glow-1: rgba(236, 72, 153, 0.1);
+  --section-glow-2: rgba(139, 92, 246, 0.1);
+  background-color: #fbf3ff;
+  background-image: var(--grad-testimonials);
+}
+
+html[data-theme="light"] .contact {
+  --contact-bg: linear-gradient(145deg, #ffffff 0%, #f4f2ff 52%, #eefaff 100%);
+  --contact-muted: #52688b;
+  --contact-muted-strong: #33496b;
+  --section-glow-1: rgba(124, 58, 237, 0.12);
+  --section-glow-2: rgba(6, 182, 212, 0.1);
+  background-color: #edf3ff;
+  background-image: var(--grad-contact);
+}
+
+html[data-theme="light"] .contact-card {
+  border-color: rgba(10, 28, 61, 0.12);
+  color: var(--ink);
+}
+
+html[data-theme="light"] .contact-card .section-index span {
+  background: rgba(47, 124, 246, 0.12);
+  color: #155fd6;
+}
+
+html[data-theme="light"] .contact-card__title {
+  color: var(--ink);
+}
+
+html[data-theme="light"] .contact-card__title em {
+  background-image: linear-gradient(115deg, #2563eb 0%, #7c3aed 48%, #db2777 100%);
+}
+
+html[data-theme="light"] .contact-card__socials a {
+  border-color: var(--line-strong);
+  color: var(--muted-strong);
+}
+
+html[data-theme="light"] .contact-card__socials a:hover {
+  border-color: var(--accent-strong);
+  color: var(--accent-strong);
+}
+
+html[data-theme="light"] .contact-card__rocket {
+  color: #7142b8;
+  filter: drop-shadow(0 0 18px rgba(126, 96, 220, 0.24));
+}
+
+html[data-theme="light"] .footer {
+  --section-glow-1: rgba(124, 92, 246, 0.1);
+  --section-glow-2: rgba(34, 211, 238, 0.1);
+  background-color: #edf2ff;
+  background-image: var(--grad-footer);
+}
