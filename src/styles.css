@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Surabaya+Sans:wght@300;400;500;600;700;800&display=swap");
 :root {
   --bg: #eef6ff;
   --surface: #e4f0ff;
@@ -1350,6 +1351,15 @@ body.menu-open .mobile-menu__footer {
 .hero__line-inner {
   display: block;
   transform: translate3d(0, 116%, 0);
+  transition: transform 0.78s var(--ease-out);
+}
+
+.hero__line:nth-child(2) .hero__line-inner {
+  transition-delay: 0.11s;
+}
+
+.hero__line:nth-child(3) .hero__line-inner {
+  transition-delay: 0.22s;
 }
 
 body.intro-ready .hero__line-inner {
@@ -1668,6 +1678,10 @@ body.intro-ready .hero__line-inner {
 .hero-anim {
   opacity: 0;
   transform: translate3d(0, 14px, 0);
+  transition:
+    opacity 0.62s var(--ease-out) 0.34s,
+    transform 0.62s var(--ease-out) 0.34s,
+    clip-path 0.7s var(--ease-out) 0.08s;
 }
 
 .hero__copy > .eyebrow.hero-anim {
