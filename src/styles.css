@@ -3575,6 +3575,23 @@ html[data-theme="dark"] .contact-card__socials a {
   will-change: transform;
 }
 
+body.reveal-ready [data-reveal]:not(.is-visible) {
+  opacity: 0;
+  transform:
+    translate3d(var(--reveal-x, 0), var(--reveal-y, 34px), 0)
+    scale(var(--reveal-scale, 1));
+  will-change: opacity, transform;
+}
+
+body.reveal-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  will-change: auto;
+  transition:
+    opacity 0.65s var(--ease-out),
+    transform 0.65s var(--ease-out);
+}
+
 body.reveal-ready .tool-card[data-reveal].is-visible:hover {
   transform: translateY(-6px);
 }
@@ -4063,8 +4080,8 @@ body.reveal-ready [data-split].is-visible .word {
     transition-duration: 0.01ms !important;
   }
 
-  .js [data-reveal],
-  .js [data-split] .word {
+  body.reveal-ready [data-reveal],
+  body.reveal-ready [data-split] .word {
     opacity: 1 !important;
     transform: none !important;
   }
