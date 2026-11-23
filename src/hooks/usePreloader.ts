@@ -26,7 +26,7 @@ export function usePreloader() {
 
     const tick = (timestamp: number) => {
       if (!started) started = timestamp;
-      const ratio = Math.min((timestamp - started) / 260, 1);
+      const ratio = Math.min((timestamp - started) / 1500, 1);
       const eased = 1 - Math.pow(1 - ratio, 3);
       setProgress(Math.round(eased * 100));
       if (ratio < 1) raf = requestAnimationFrame(tick);

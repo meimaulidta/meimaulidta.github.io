@@ -23,7 +23,7 @@ export function Hero() {
         <div className="hero__copy">
           <p className="eyebrow hero-anim">
             <span className="eyebrow__dot" aria-hidden="true"></span>
-            Content creator &amp; social media specialist
+            Content Creator &amp; Social Media Specialist
           </p>
 
           <h1 className="hero__title" id="hero-title">
@@ -31,23 +31,23 @@ export function Hero() {
               <span className="hero__line-inner">Halo, aku Mei.</span>
             </span>
             <span className="hero__line">
-              <span className="hero__line-inner">Bikin brand</span>
+              <span className="hero__line-inner">Let’s work</span>
             </span>
             <span className="hero__line">
               <span className="hero__line-inner">
-                lebih <em>fun.</em>
+                <em>together.</em>
               </span>
             </span>
           </h1>
 
           <p className="hero__lead hero-anim">
-            <strong>Mei Maulidta Tri Ambarwati</strong> — content creator,
-            digital marketing, dan social media specialist.
+            <strong>Mei Maulidta Tri Ambarwati</strong> — creating content and
+            social media strategies that feel clear, relevant, and human.
           </p>
 
           <div className="hero__actions hero-anim">
             <a className="btn btn--primary" href="#work" data-magnetic>
-              Lihat karyaku
+              Explore my work
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -58,16 +58,13 @@ export function Hero() {
                 <path d="M7 17 17 7M8 7h9v9"></path>
               </svg>
             </a>
-            <a className="btn btn--ghost" href="#contact" data-magnetic>
-              Ngobrol yuk
-            </a>
             <a
               className="btn btn--ghost"
               href="assets/files/CV%20MEI%20MAULIDTA%20TRI%20A.%20new.pdf"
               download="CV Mei Maulidta Tri Ambarwati.pdf"
               data-magnetic
             >
-              Download CV
+              Download my CV
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -124,7 +121,7 @@ export function Hero() {
               </svg>
             </span>
             <p className="float-card__num">20%</p>
-            <p className="float-card__label">Engagement brand</p>
+            <p className="float-card__label">Engagement rate</p>
           </div>
         </div>
       </div>
