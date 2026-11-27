@@ -184,6 +184,27 @@ export function PrayerToast() {
             </p>
           </article>
 
+          <article className="footer__prayer-verse">
+            <div className="footer__prayer-verse-heading">
+              <h3>Ayat Seribu Dinar</h3>
+              <span>At-Talaq · 65:2–3</span>
+            </div>
+            <p className="footer__prayer-arabic" lang="ar" dir="rtl">
+              وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُۥ مَخْرَجًا ۝ وَيَرْزُقْهُ
+              مِنْ حَيْثُ لَا يَحْتَسِبُ ۚ وَمَن يَتَوَكَّلْ عَلَى اللَّهِ
+              فَهُوَ حَسْبُهُ ۚ إِنَّ اللَّهَ بَالِغُ أَمْرِهِ ۚ قَدْ جَعَلَ
+              اللَّهُ لِكُلِّ شَيْءٍ قَدْرًا
+            </p>
+            <p className="footer__prayer-translation">
+              “Barang siapa bertakwa kepada Allah, niscaya Dia akan membukakan
+              jalan keluar baginya. Dan Dia memberinya rezeki dari arah yang
+              tidak disangka-sangkanya. Barang siapa bertawakal kepada Allah,
+              niscaya Allah akan mencukupkan (keperluan)nya. Sesungguhnya Allah
+              melaksanakan urusan-Nya. Sungguh, Allah telah mengadakan
+              ketentuan bagi setiap sesuatu.”
+            </p>
+          </article>
+
           <p className="footer__prayer-source">
             Rujukan:{" "}
             <a
@@ -224,6 +245,14 @@ export function PrayerToast() {
               rel="noopener noreferrer"
             >
               Al-Baqarah 2:201
+            </a>{" "}
+            ·{" "}
+            <a
+              href="https://quran.com/65/2-3?translations=33"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              At-Talaq 65:2–3
             </a>{" "}
             ·{" "}
             <a
