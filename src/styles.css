@@ -1343,8 +1343,8 @@ body.menu-open .mobile-menu__footer {
 
 .hero__line {
   display: block;
-  padding-bottom: 0.08em;
-  margin-bottom: -0.08em;
+  padding-bottom: 0.16em;
+  margin-bottom: -0.16em;
   overflow: hidden;
 }
 
@@ -3290,16 +3290,19 @@ html[data-theme="dark"] .testimonial:nth-child(3) .testimonial__avatar {
   z-index: 1;
   margin-top: clamp(1.6rem, 3vw, 2.4rem);
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.6vw, 5rem);
+  max-width: 22ch;
+  font-size: clamp(2.4rem, 5.6vw, 4.6rem);
   font-weight: 800;
   letter-spacing: -0.05em;
-  line-height: 1;
+  line-height: 1.12;
   color: #eaf3ff;
+  text-wrap: balance;
 }
 
 .contact-card__title em {
   background-image: linear-gradient(115deg, #a5b4fc 0%, #f0abfc 48%, #fda4af 100%);
   font-weight: 500;
+  padding-inline-end: 0.16em;
 }
 
 .contact-card__lead {
@@ -3521,13 +3524,6 @@ html[data-theme="dark"] .contact-card__socials a {
   -webkit-text-stroke: 1px var(--line-strong);
 }
 
-.footer__wordmark span {
-  font-family: var(--font-serif);
-  font-size: 0.22em;
-  font-weight: 500;
-  vertical-align: top;
-}
-
 .footer__wordmark:hover {
   color: var(--accent);
   -webkit-text-stroke-color: transparent;
@@ -3546,6 +3542,213 @@ html[data-theme="dark"] .contact-card__socials a {
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+.footer__credit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+.footer__credit-year {
+  margin-left: -0.5rem;
+}
+
+.footer__prayer-trigger {
+  position: relative;
+  display: inline-grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-left: -0.5rem;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: #c4b5fd;
+  cursor: pointer;
+  transition:
+    transform 0.3s var(--ease-out);
+}
+
+.footer__prayer-trigger::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid rgba(194, 207, 240, 0.24);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  content: "";
+  transform: translate(-50%, -50%);
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.footer__prayer-trigger:hover {
+  transform: translateY(-2px);
+}
+
+.footer__prayer-trigger:hover::before {
+  border-color: rgba(196, 181, 253, 0.7);
+  background: rgba(196, 181, 253, 0.12);
+}
+
+.footer__prayer-trigger:hover svg {
+  color: #e9ddff;
+}
+
+.footer__prayer-trigger:focus-visible,
+.footer__prayer-close:focus-visible,
+.footer__prayer-source a:focus-visible {
+  outline: 2px solid #c4b5fd;
+  outline-offset: 3px;
+}
+
+.footer__prayer-trigger svg {
+  position: relative;
+  width: 0.62rem;
+  height: 0.62rem;
+  transition: color 0.25s ease;
+}
+
+.footer__prayer-panel {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 1200;
+  width: min(29rem, calc(100vw - 2rem));
+  max-height: min(76vh, 46rem);
+  overflow: auto;
+  padding: clamp(1.15rem, 4vw, 1.65rem);
+  border: 1px solid rgba(196, 181, 253, 0.22);
+  border-radius: 1.35rem;
+  background:
+    radial-gradient(ellipse at 100% 0, rgba(124, 92, 246, 0.18), transparent 46%),
+    linear-gradient(155deg, rgba(17, 22, 42, 0.98), rgba(8, 11, 22, 0.99));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.48);
+  color: #edf2ff;
+  animation: prayer-toast-in 0.42s var(--ease-out) both;
+  overscroll-behavior: contain;
+}
+
+.footer__prayer-panel[hidden] {
+  display: none;
+}
+
+.footer__prayer-heading,
+.footer__prayer-verse-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.footer__prayer-heading {
+  margin-bottom: 1.2rem;
+}
+
+.footer__prayer-eyebrow {
+  margin-bottom: 0.3rem;
+  color: #b7a5fa;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.footer__prayer-heading h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: -0.035em;
+}
+
+.footer__prayer-close {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(194, 207, 240, 0.18);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #d7ddf0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.footer__prayer-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.footer__prayer-close svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.footer__prayer-verse {
+  padding: 1rem 0;
+  border-top: 1px solid rgba(194, 207, 240, 0.14);
+}
+
+.footer__prayer-verse-heading {
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.footer__prayer-verse-heading h3 {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.footer__prayer-verse-heading span {
+  color: #a7b2ce;
+  font-size: 0.66rem;
+  white-space: nowrap;
+}
+
+.footer__prayer-arabic {
+  margin-block: 0.9rem;
+  color: #f0eaff;
+  font-family: "Times New Roman", serif;
+  font-size: 1.2rem;
+  line-height: 2;
+  text-align: right;
+}
+
+.footer__prayer-translation {
+  color: #c6cee1;
+  font-size: 0.78rem;
+  line-height: 1.75;
+}
+
+.footer__prayer-source {
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(194, 207, 240, 0.14);
+  color: #a7b2ce;
+  font-size: 0.67rem;
+  line-height: 1.7;
+}
+
+.footer__prayer-source a {
+  color: #d5c7ff;
+  text-decoration: underline;
+  text-decoration-color: rgba(213, 199, 255, 0.45);
+  text-underline-offset: 0.2em;
+}
+
+@keyframes prayer-toast-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1rem, 0) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
 }
 
 .back-to-top {

@@ -47,8 +47,7 @@ export function Contact() {
           </svg>
 
           <h2 className="contact-card__title" id="contact-title">
-            Mau cari tahu tentang <br />
-            <em>aku?</em>
+            Mau cari tahu tentang <em>aku?</em>
           </h2>
 
           <p className="contact-card__lead">

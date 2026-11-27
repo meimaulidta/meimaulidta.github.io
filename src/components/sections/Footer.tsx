@@ -3,6 +3,7 @@ import { useClock } from "../../hooks/useClock";
 import { Brand } from "../ui/Brand";
 import { SectionAurora } from "../ui/SectionAurora";
 import { SectionOrnament } from "../ui/SectionOrnament";
+import { PrayerToast } from "./PrayerToast";
 
 export function Footer() {
   const clock = useClock();
@@ -48,14 +49,20 @@ export function Footer() {
         <a
           className="footer__wordmark"
           href="#home"
-          aria-label="mei® — Kembali ke atas"
+          aria-label="mei — Kembali ke atas"
           data-reveal
         >
-          mei<span>®</span>
+          mei
         </a>
 
         <div className="footer__bottom" data-reveal>
-          <p>Portofolio created with passion - {year}.</p>
+          <p className="footer__credit">
+            Portfolio made with passion and prayers
+            <PrayerToast />
+            <span className="footer__credit-year">
+              <span aria-hidden="true">·</span> {year}.
+            </span>
+          </p>
           <a className="back-to-top" href="#home">
             Kembali ke atas
             <svg
