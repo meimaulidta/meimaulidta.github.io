@@ -74,6 +74,7 @@ npm run deploy
 ```
 
 `predeploy` otomatis menjalankan build, lalu `gh-pages` mempublikasikan isi `dist/` ke branch `gh-pages`.
+File verifikasi Google disimpan di `public/` agar ikut disalin ke root `dist/` saat build.
 
 Aktifkan di GitHub: **Settings → Pages → Source: Deploy from a branch → `gh-pages` / root**.
 
